@@ -104,7 +104,7 @@ class FreeAgent(OAuth2Session):  # type: ignore[misc]
         response.raise_for_status()
 
     def get_logged_in_user(self) -> dict[str, Any]:
-        """Get a the logged in user."""
+        """Get the logged in user."""
         response = self.get("https://api.freeagent.com/v2/users/me")
         response.raise_for_status()
         response_data = response.json()
