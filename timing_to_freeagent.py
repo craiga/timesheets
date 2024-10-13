@@ -2,17 +2,17 @@
 """Copy timesheet entries from Timing to FreeAgent."""
 
 import json
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
 import click
 from dotenv import load_dotenv
+from oauthlib.oauth2 import MissingTokenError
 
+from datetime_helpers import TIMEZONE, round_to_nearest_five_minutes
 from freeagent import FreeAgent, FreeAgentAuthCodeListener
 from timing import Timing
-
-TIMEZONE = datetime.now(UTC).astimezone().tzinfo
 
 
 class TimingProjectToFreeAgentMap(dict[str, dict[str, str]]):
@@ -72,7 +72,9 @@ def main(  # noqa: PLR0913
         Timing(timing_personal_access_token) as timing,
         FreeAgent(freeagent_oauth_id) as freeagent,
     ):
-        if not freeagent.authorized:
+        try:
+            freeagent_user = freeagent.get_logged_in_user()
+        except MissingTokenError:
             listener = FreeAgentAuthCodeListener(ngrok_domain)
             click.echo(
                 f"Please make sure {listener.ngrok.url()} is registered as an OAuth"
@@ -85,8 +87,7 @@ def main(  # noqa: PLR0913
                 client_id=freeagent_oauth_id,
                 client_secret=freeagent_oauth_secret,
             )
-
-        freeagent_user = freeagent.get_logged_in_user()
+            freeagent_user = freeagent.get_logged_in_user()
 
         for time_entry in timing.get_time_entries(
             load_projects=True, start_date_min=date_from, start_date_max=date_until
@@ -120,17 +121,20 @@ def main(  # noqa: PLR0913
                 timing_to_freeagent_map.save()
 
             freeagent_project_data = timing_to_freeagent_map[project_id]
+
             freeagent.create_timeslip({
                 "task": freeagent_project_data["task"],
                 "project": freeagent_project_data["project"],
                 "user": freeagent_user["url"],
                 "dated_on": str(time_entry["start_date"].date()),
-                # Hours rounded to nearest five minutes.
-                "hours": round(
-                    (time_entry["end_date"] - time_entry["start_date"]).total_seconds()
-                    / 300
-                )
-                / 12,
+                "hours": (
+                    (
+                        round_to_nearest_five_minutes(time_entry["end_date"])
+                        - round_to_nearest_five_minutes(time_entry["start_date"])
+                    ).total_seconds()
+                    / 60
+                    / 60
+                ),
             })
 
 
