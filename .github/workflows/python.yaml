@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repo
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.1
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
+          python-version: 3.12
           cache: "pip"
       - name: Setup
         run: pip install --requirement requirements.txt
