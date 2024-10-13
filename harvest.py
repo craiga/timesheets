@@ -28,7 +28,8 @@ class Harvest(requests.Session):
         """Get the logged in user."""
         response = self.get("https://api.harvestapp.com/v2/users/me")
         response.raise_for_status()
-        return response.json()
+        user: dict[str, Any] = response.json()
+        return user
 
     def get_logged_in_user_project_assignments(
         self, **kwargs: Any
@@ -48,7 +49,7 @@ class Harvest(requests.Session):
             yield from response_data["project_assignments"]
 
     def create_time_entry(self, time_entry: dict[str, Any]) -> None:
-        """Create timeslip."""
+        """Create time entry."""
         response = self.post(
             "https://api.harvestapp.com/v2/time_entries", json=time_entry
         )
