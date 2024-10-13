@@ -1,0 +1,11 @@
+*.dump
+*.pyc
+.tmp/
+.tool-versions
+.vscode/
+/*.csv
+/.env
+/.freeagent-token
+/.nova
+/.python-version
+/.timing-project-to-freeagent-task-map

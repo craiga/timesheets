@@ -1,0 +1,42 @@
+[project]
+name = "Timesheet"
+requires-python = ">=3.12"
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+enable_error_code = "ignore-without-code"
+mypy_path = ".mypy-stubs"
+
+[[tool.mypy.overrides]]
+module = [
+  "requests_oauthlib.*"
+]
+ignore_missing_imports = true
+
+
+[tool.ruff]
+output-format = "full"
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+
+# Rule definitions are at https://docs.astral.sh/ruff/rules/.
+
+# Try to keep as many checks enabled as possible.
+# If there's a specific check that causes problems with a certain type of file,
+# consider adding an entry to per-file-ignores instead of here.
+
+select = ["ALL"]
+ignore = ["ANN401", "ANN1", "COM812", "ISC001"]
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
