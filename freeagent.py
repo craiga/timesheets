@@ -24,6 +24,8 @@ class FreeAgent(OAuth2Session):  # type: ignore[misc]
         **kwargs: Any,
     ) -> None:
         """FreeAgent client."""
+        self._token: dict[str, str | int | float] | None = None
+        self._token_path = Path(".freeagent-token")
         super().__init__(
             *args,
             client=WebApplicationClient(client_id=oauth_id),
@@ -32,8 +34,6 @@ class FreeAgent(OAuth2Session):  # type: ignore[misc]
             auto_refresh_url="https://api.freeagent.com/v2/token_endpoint",
             **kwargs,
         )
-        self._token: dict[str, str | int | float] | None = None
-        self._token_path = Path(".freeagent-token")
 
     def get_authorization_url(self, listener: "FreeAgentAuthCodeListener") -> str:
         """Get authorization URL."""
