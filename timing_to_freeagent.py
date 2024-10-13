@@ -20,7 +20,7 @@ class TimingProjectToFreeAgentMap(dict[str, dict[str, str]]):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Timing project to FreeAgent map."""  # noqa: D401
-        self._path = Path(".timing-project-to-freeagent-task-map.json")
+        self._path = Path(".timing-project-to-freeagent-map")
         super().__init__(*args, **kwargs)
 
     def load(self) -> None:
