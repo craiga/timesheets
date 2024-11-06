@@ -98,7 +98,7 @@ def main(  # noqa: PLR0913
                 tasks = list(freeagent.get_tasks(load_projects=True, view="active"))
                 for task_index, task in enumerate(tasks):
                     click.echo(
-                        f"{task_index}: {task["project"]["name"]} — {task["name"]}"
+                        f"{task_index}: {task['project']['name']} — {task['name']}"
                     )
 
                 selected_task = tasks[
