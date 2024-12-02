@@ -4,9 +4,9 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes --strip-extras
 #
-asttokens==2.4.1 \
-    --hash=sha256:051ed49c3dcae8913ea7cd08e46a606dba30b79993209636c4875bc1d637bc24 \
-    --hash=sha256:b03869718ba9a6eb027e134bfdf69f38a236d681c83c160d510768af11254ba0
+asttokens==3.0.0 \
+    --hash=sha256:0dcd8baa8d62b0c1d118b399b2ddba3c4aff271d0d7a9e0d4c1681c79035bbc7 \
+    --hash=sha256:e3078351a059199dd5138cb1c706e6430c05eff2ff136af5eb4790f9d28932e2
     # via icecream
 build==1.2.2.post1 \
     --hash=sha256:1d61c0887fa860c01971625baae8bdd338e517b836a2f70dd1f7aa3a6b2fc5b5 \
@@ -231,10 +231,6 @@ requests-oauthlib==2.0.0 \
     --hash=sha256:7dd8a5c40426b779b0868c404bdef9768deccf22749cde15852df527e6269b36 \
     --hash=sha256:b3dffaebd884d8cd778494369603a9e7b58d29111bf6b41bdc2dcd87203af4e9
     # via -r requirements.in
-six==1.16.0 \
-    --hash=sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926 \
-    --hash=sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
-    # via asttokens
 types-oauthlib==3.2.0.20240806 \
     --hash=sha256:31a8d7f7bffc067a4143d30167694ccb304316aced04de50741014155f502043 \
     --hash=sha256:581bb8e194700d16ae1f0b62a6039261ed1afd0b88e78782e1c48f6507c52f34
