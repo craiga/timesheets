@@ -19,18 +19,18 @@ repos:
           - "--fix=lf"
       - id: trailing-whitespace
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.0
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: ["--py312-plus"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.2
+    rev: v0.9.1
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
   - repo: https://github.com/crate-ci/typos
-    rev: v1.27.0
+    rev: dictgen-v0.3.1
     hooks:
       - id: typos
   - repo: https://github.com/mrtazz/checkmake.git
@@ -38,6 +38,6 @@ repos:
     hooks:
       - id: checkmake
   - repo: https://github.com/Mateusz-Grzelinski/actionlint-py
-    rev: v1.7.3.17
+    rev: v1.7.6.22
     hooks:
       - id: actionlint
