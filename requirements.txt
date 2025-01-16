@@ -137,9 +137,9 @@ executing==2.1.0 \
     --hash=sha256:8d63781349375b5ebccc3142f4b30350c0cd9c79f921cde38be2be4637e98eaf \
     --hash=sha256:8ea27ddd260da8150fa5a708269c4a10e76161e2496ec3e587da9e3c0fe4b9ab
     # via icecream
-icecream==2.1.3 \
-    --hash=sha256:0aa4a7c3374ec36153a1d08f81e3080e83d8ac1eefd97d2f4fe9544e8f9b49de \
-    --hash=sha256:757aec31ad4488b949bc4f499d18e6e5973c40cc4d4fc607229e78cfaec94c34
+icecream==2.1.4 \
+    --hash=sha256:58755e58397d5350a76f25976dee7b607f5febb3c6e1cddfe6b1951896e91573 \
+    --hash=sha256:7bb715f69102cae871b3a361c3b656536db02cfcadac9664c673581cac4df4fd
     # via -r requirements.in
 idna==3.10 \
     --hash=sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9 \
