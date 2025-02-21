@@ -89,6 +89,8 @@ def main(
                     (
                         "Map Timing project "
                         + " ".join(time_entry["project"]["title_chain"])
+                        + " "
+                        + time_entry["title"]
                         + " to which Harvest project?"
                     ),
                     type=click.Choice([project["name"] for project in projects]),
@@ -106,8 +108,10 @@ def main(
                 ]
                 task_name = click.prompt(
                     (
-                        "Map Timing project "
+                        "Map Timing task "
                         + " ".join(time_entry["project"]["title_chain"])
+                        + " "
+                        + time_entry["title"]
                         + " to which Harvest task?"
                     ),
                     type=click.Choice([task["name"] for task in tasks]),
