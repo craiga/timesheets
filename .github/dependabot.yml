@@ -6,9 +6,18 @@ updates:
       interval: "daily"
     allow:
       - dependency-type: "all"
+    groups:
+      pip:
+        applies-to: version-updates
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
     allow:
       - dependency-type: "all"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
