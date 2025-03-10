@@ -24,13 +24,13 @@ repos:
       - id: pyupgrade
         args: ["--py312-plus"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.7
+    rev: v0.9.10
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
   - repo: https://github.com/crate-ci/typos
-    rev: v1.29.9
+    rev: v1
     hooks:
       - id: typos
   - repo: https://github.com/mrtazz/checkmake.git
