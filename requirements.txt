@@ -217,9 +217,9 @@ pyproject-hooks==1.2.0 \
     # via
     #   build
     #   pip-tools
-python-dotenv==1.0.1 \
-    --hash=sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca \
-    --hash=sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a
+python-dotenv==1.1.0 \
+    --hash=sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5 \
+    --hash=sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d
     # via -r requirements.in
 requests==2.32.3 \
     --hash=sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760 \
@@ -231,13 +231,13 @@ requests-oauthlib==2.0.0 \
     --hash=sha256:7dd8a5c40426b779b0868c404bdef9768deccf22749cde15852df527e6269b36 \
     --hash=sha256:b3dffaebd884d8cd778494369603a9e7b58d29111bf6b41bdc2dcd87203af4e9
     # via -r requirements.in
-types-oauthlib==3.2.0.20240806 \
-    --hash=sha256:31a8d7f7bffc067a4143d30167694ccb304316aced04de50741014155f502043 \
-    --hash=sha256:581bb8e194700d16ae1f0b62a6039261ed1afd0b88e78782e1c48f6507c52f34
+types-oauthlib==3.2.0.20250401 \
+    --hash=sha256:5591a3ee974683c8c3d5dec46831ed02b3502894d3813dae6e6abb6a840f602d \
+    --hash=sha256:adae9178ff62b4099123e9ac15475c7277ac7dc741ce5a6dacc7e023a34023dc
     # via -r requirements.in
-types-requests==2.32.0.20250306 \
-    --hash=sha256:0962352694ec5b2f95fda877ee60a159abdf84a0fc6fdace599f20acb41a03d1 \
-    --hash=sha256:25f2cbb5c8710b2022f8bbee7b2b66f319ef14aeea2f35d80f18c9dbf3b60a0b
+types-requests==2.32.0.20250328 \
+    --hash=sha256:72ff80f84b15eb3aa7a8e2625fffb6a93f2ad5a0c20215fc1dcfa61117bcb2a2 \
+    --hash=sha256:c9e67228ea103bd811c96984fac36ed2ae8da87a36a633964a21f199d60baf32
     # via -r requirements.in
 typing-extensions==4.12.2 \
     --hash=sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d \
@@ -259,7 +259,7 @@ pip==25.0.1 \
     --hash=sha256:88f96547ea48b940a3a385494e181e29fb8637898f88d88737c5049780f196ea \
     --hash=sha256:c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f
     # via pip-tools
-setuptools==75.8.2 \
-    --hash=sha256:4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2 \
-    --hash=sha256:558e47c15f1811c1fa7adbd0096669bf76c1d3f433f58324df69f3f5ecac4e8f
+setuptools==78.1.0 \
+    --hash=sha256:18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54 \
+    --hash=sha256:3e386e96793c8702ae83d17b853fb93d3e09ef82ec62722e61da5cd22376dcd8
     # via pip-tools
