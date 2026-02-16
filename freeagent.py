@@ -145,7 +145,7 @@ class OAuthHTTPRequestHandler(BaseHTTPRequestHandler):
         super().__init__(request, client_address, server)
         server.last_path = self.path
 
-    def do_GET(self) -> None:  # noqa: N802
+    def do_GET(self) -> None:
         """Send response to GET request."""
         body = bytes("You can close this window now.", "utf-8")
         self.protocol_version = "HTTP/1.1"
