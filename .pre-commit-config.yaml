@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
@@ -19,12 +19,12 @@ repos:
           - "--fix=lf"
       - id: trailing-whitespace
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+    rev: v3.21.2
     hooks:
       - id: pyupgrade
         args: ["--py312-plus"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.9
+    rev: v0.15.1
     hooks:
       - id: ruff
         args: [--fix]
@@ -34,10 +34,10 @@ repos:
     hooks:
       - id: typos
   - repo: https://github.com/mrtazz/checkmake.git
-    rev: 0.2.2
+    rev: v0.3.0
     hooks:
       - id: checkmake
   - repo: https://github.com/Mateusz-Grzelinski/actionlint-py
-    rev: v1.7.7.23
+    rev: v1.7.11.24
     hooks:
       - id: actionlint
