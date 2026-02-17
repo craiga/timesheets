@@ -265,6 +265,7 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "requests" },
     { name = "requests-oauthlib" },
+    { name = "types-click-log" },
     { name = "types-oauthlib" },
     { name = "types-requests" },
 ]
@@ -279,8 +280,21 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "requests-oauthlib", specifier = ">=2.0.0" },
+    { name = "types-click-log", specifier = ">=0.4.0.20250413" },
     { name = "types-oauthlib", specifier = ">=3.3.0.20250822" },
     { name = "types-requests", specifier = ">=2.32.4.20260107" },
+]
+
+[[package]]
+name = "types-click-log"
+version = "0.4.0.20250413"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2d/6b/f4583195dfc4d4f9fb5552f6c5ad872dc4232bb812f666b583ea43cca1cf/types_click_log-0.4.0.20250413.tar.gz", hash = "sha256:d853730c9aafb1de3968fa0271f88a2c2bf5c434b53e1885f74b5ac0b0de0489", size = 7362, upload-time = "2025-04-13T04:04:03.277Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/df/34/37ec32fc794e6effd6547c047578969504ce337a5aef13d4ea160713fcf6/types_click_log-0.4.0.20250413-py3-none-any.whl", hash = "sha256:6c14a45b42776a577066f2dcab9162ccd48e7aeb6716bfe272ad2ad25405428a", size = 8172, upload-time = "2025-04-13T04:04:02.108Z" },
 ]
 
 [[package]]
