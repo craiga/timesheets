@@ -1,16 +1,9 @@
 """Harvest."""
 
 from collections.abc import Iterator
-from typing import Any, TypedDict
+from typing import Any
 
 import requests
-
-
-class PaginatedProjectAssignmentsResponse(TypedDict):
-    """Type for a paginated response."""
-
-    links: dict[str, str]
-    project_assignments: list[dict[str, Any]]
 
 
 class Harvest(requests.Session):
@@ -22,7 +15,7 @@ class Harvest(requests.Session):
         """Harvest client."""
         super().__init__(*args, **kwargs)
         self.headers["Authorization"] = f"Bearer {personal_access_token}"
-        self.headers["Harvest-Account-ID"] = account_id
+        self.headers["Harvest-Account-Id"] = account_id
 
     def get_logged_in_user(self) -> dict[str, Any]:
         """Get the logged in user."""
@@ -35,7 +28,7 @@ class Harvest(requests.Session):
         self, **kwargs: Any
     ) -> Iterator[dict[str, Any]]:
         """Get projects assigned to the logged in user."""
-        response_data: PaginatedProjectAssignmentsResponse = {
+        response_data: dict[str, Any] = {
             "links": {
                 "next": "https://api.harvestapp.com/v2/users/me/project_assignments"
             },
@@ -48,9 +41,29 @@ class Harvest(requests.Session):
             response_data = response.json()
             yield from response_data["project_assignments"]
 
-    def create_time_entry(self, time_entry: dict[str, Any]) -> None:
+    def create_time_entry(self, time_entry: dict[str, Any]) -> dict[str, Any]:
         """Create time entry."""
         response = self.post(
             "https://api.harvestapp.com/v2/time_entries", json=time_entry
         )
         response.raise_for_status()
+        return response.json()
+
+    def get_time_entry(self, time_entry_id: int) -> dict[str, Any]:
+        """Create time entry."""
+        response = self.get(
+            f"https://api.harvestapp.com/v2/time_entries/{time_entry_id}"
+        )
+        response.raise_for_status()
+        return response.json()
+
+    def update_time_entry(
+        self, time_entry_id: int, time_entry: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Update time entry."""
+        response = self.patch(
+            f"https://api.harvestapp.com/v2/time_entries/{time_entry_id}",
+            json=time_entry,
+        )
+        response.raise_for_status()
+        return response.json()
