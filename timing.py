@@ -70,7 +70,8 @@ class Timing(requests.Session):
         """Get project hierarchy."""
         response = self.get("https://web.timingapp.com/api/v1/projects/hierarchy")
         response.raise_for_status()
-        return response.json()["data"]
+        project_hierarchy: dict[str, Any] = response.json()["data"]
+        return project_hierarchy
 
     def get_project(
         self, project_id: str, *, load_projects: bool = False

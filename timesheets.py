@@ -90,6 +90,9 @@ def list_projects(timing_api: Timing) -> None:
             show_project(child_project, prefix + "\t")
 
     for project in timing_api.get_project_hierarchy():
+        if not isinstance(project, dict):
+            raise TypeError
+
         show_project(project)
 
 

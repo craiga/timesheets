@@ -49,7 +49,8 @@ class Harvest(requests.Session):
             "https://api.harvestapp.com/v2/time_entries", json=time_entry
         )
         response.raise_for_status()
-        return response.json()
+        response_time_entry: dict[str, Any] = response.json()
+        return response_time_entry
 
     def get_time_entry(self, time_entry_id: int) -> dict[str, Any]:
         """Create time entry."""
@@ -57,7 +58,8 @@ class Harvest(requests.Session):
             f"https://api.harvestapp.com/v2/time_entries/{time_entry_id}"
         )
         response.raise_for_status()
-        return response.json()
+        response_time_entry: dict[str, Any] = response.json()
+        return response_time_entry
 
     def update_time_entry(
         self, time_entry_id: int, time_entry: dict[str, Any]
@@ -68,4 +70,5 @@ class Harvest(requests.Session):
             json=time_entry,
         )
         response.raise_for_status()
-        return response.json()
+        response_time_entry: dict[str, Any] = response.json()
+        return response_time_entry
