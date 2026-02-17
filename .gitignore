@@ -7,6 +7,4 @@
 /.env
 /.freeagent-token
 /.nova
-/.python-version
-/.timing-project-to-freeagent-map
-/.timing-project-to-harvest-map
+/Timesheet.egg-info

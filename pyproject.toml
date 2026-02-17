@@ -1,6 +1,20 @@
 [project]
 name = "Timesheet"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
+dynamic = ["version"]
+dependencies = [
+    "click>=8.3.1",
+    "click-log>=0.4.0",
+    "icecream>=2.1.10",
+    "mypy>=1.19.1",
+    "ngrok>=1.7.0",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+    "requests-oauthlib>=2.0.0",
+    "types-click-log>=0.4.0.20250413",
+    "types-oauthlib>=3.3.0.20250822",
+    "types-requests>=2.32.4.20260107",
+]
 
 [tool.mypy]
 strict = true
@@ -31,6 +45,28 @@ preview = true
 
 select = ["ALL"]
 ignore = ["ANN401", "ANN1", "COM812", "ISC001"]
+extend-safe-fixes = [
+  "ANN204",
+  "EM",
+  "F401",
+  "FA102",
+  "PERF102",
+  "PIE810",
+  "PT006",
+  "RSE102",
+  "RUF005",
+  "SIM117",
+  "SIM118",
+  "TCH",
+  "TRY003",
+  "TRY201",
+  "TRY400",
+  "UP038",
+]
+extend-unsafe-fixes = [
+  "B009",
+  "B010"
+]
 
 [tool.ruff.lint.isort]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
@@ -40,3 +76,6 @@ convention = "pep257"
 
 [tool.ruff.lint.flake8-unused-arguments]
 ignore-variadic-names = true
+
+[tool.setuptools]
+packages = []
