@@ -1,15 +1,20 @@
 """Command-line interface."""
 
+import logging
 from http import HTTPStatus
 from typing import Any
 
 import click
+import click_log
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError
 
 from datetime_helpers import round_to_nearest_five_minutes
 from harvest import Harvest
 from timing import Timing
+
+logger = logging.getLogger(__name__)
+click_log.basic_config(logger)
 
 
 @click.group
@@ -152,10 +157,10 @@ class HarvestProjectIDNotSetError(RuntimeError):
                 "Harvest project ID not set for Timing project"
                 f" {time_entry['project']['title']}"
             ),
-            time_entry,
             *args,
             **kwargs,
         )
+        self.add_note(f"Timing entry starts at {time_entry['start_date']}")
 
 
 class HarvestTaskIDNotSetError(RuntimeError):
@@ -168,10 +173,10 @@ class HarvestTaskIDNotSetError(RuntimeError):
                 "Harvest task ID not set for Timing project"
                 f" {time_entry['project']['title']}"
             ),
-            time_entry,
             *args,
             **kwargs,
         )
+        self.add_note(f"Timing entry starts at {time_entry['start_date']}")
 
 
 def timing_to_harvest_time_entry(time_entry: dict[str, Any]) -> dict[str, Any]:
@@ -248,10 +253,13 @@ def send_to_harvest(
 
     harvest_api = Harvest(harvest_personal_access_token, harvest_account_id)
     for time_entry in timing_api.get_time_entries(load_projects=True):
-        if "harvest_time_entry_id" in time_entry["custom_fields"]:
-            update_harvest_time_entry(time_entry)
-        else:
-            create_harvest_time_entry(time_entry)
+        try:
+            if "harvest_time_entry_id" in time_entry["custom_fields"]:
+                update_harvest_time_entry(time_entry)
+            else:
+                create_harvest_time_entry(time_entry)
+        except (HarvestProjectIDNotSetError, HarvestTaskIDNotSetError):
+            logger.exception("Error sending time entry; continuing.")
 
 
 if __name__ == "__main__":

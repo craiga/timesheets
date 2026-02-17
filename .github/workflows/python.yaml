@@ -13,10 +13,7 @@ jobs:
     steps:
       - name: Clone Repo
         uses: actions/checkout@v4.2.2
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.14
-          cache: "pip"
+      - name: uv
+        uses: astral-sh/setup-uv@v7
       - name: mypy
         run: uv run mypy .
