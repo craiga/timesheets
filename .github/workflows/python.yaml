@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repo
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6.0.2
       - name: uv
         uses: astral-sh/setup-uv@v7
       - name: mypy
