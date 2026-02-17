@@ -258,7 +258,7 @@ def send_to_harvest(
                 update_harvest_time_entry(time_entry)
             else:
                 create_harvest_time_entry(time_entry)
-        except (HarvestProjectIDNotSetError, HarvestTaskIDNotSetError):
+        except HarvestProjectIDNotSetError, HarvestTaskIDNotSetError:
             logger.exception("Error sending time entry; continuing.")
 
 
