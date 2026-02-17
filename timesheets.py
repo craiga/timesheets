@@ -14,7 +14,7 @@ from timing import Timing
 
 @click.group
 def main() -> None:
-    """Entry point."""
+    """Timesheet tools."""
 
 
 @main.group

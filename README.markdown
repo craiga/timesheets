@@ -6,12 +6,14 @@ You're welcome to use or hack at them as much as you like!
 ❯ uv run timesheets.py
 Usage: timesheets.py [OPTIONS] COMMAND [ARGS]...
 
+  Timesheet tools.
+
 Options:
   --help  Show this message and exit.
 
 Commands:
-  harvest
-  timing
+  harvest  Harvest commands.
+  timing   Timing commands.
 ```
 
 ## Harvest
@@ -21,19 +23,10 @@ Reads clients, projects, and tasks from Harvest.
 The Timing script also creates and updates time entries in Harvest based on Timing time entries.
 
 ```
-❯ uv run timesheets.py
-Usage: timesheets.py [OPTIONS] COMMAND [ARGS]...
-
-Options:
-  --help  Show this message and exit.
-
-Commands:
-  harvest
-  timing
-
-timesheets on  uv [✘34?7] via  v3.14.2 (timesheet)
 ❯ uv run timesheets.py harvest
 Usage: timesheets.py harvest [OPTIONS] COMMAND [ARGS]...
+
+  Harvest commands.
 
 Options:
   --personal-access-token TEXT  Personal access token for accessing Harvest.
@@ -43,7 +36,7 @@ Options:
   --help                        Show this message and exit.
 
 Commands:
-  list-tasks
+  list-tasks  List clients, projects, and tasks.
 ```
 
 ## Timing
@@ -54,6 +47,8 @@ Reads projects from [Timing](https://timingapp.com). Also associates projects wi
 ❯ uv run timesheets.py timing
 Usage: timesheets.py timing [OPTIONS] COMMAND [ARGS]...
 
+  Timing commands.
+
 Options:
   --personal-access-token TEXT  Personal access token for accessing Timing.
                                 Visit
@@ -62,8 +57,8 @@ Options:
   --help                        Show this message and exit.
 
 Commands:
-  list-projects
-  send-to-harvest
+  list-projects           List projects hierarchically.
+  send-to-harvest         Send a time entry to Harvest.
   set-harvest-project-id  Set Harvest project ID in Timing project.
   set-harvest-task-id     Set Harvest task ID in Timing project.
 ```
