@@ -2,16 +2,18 @@
 
 import json
 import random
-from collections.abc import Iterator
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from socket import socket
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from urllib.parse import parse_qs, urlparse
 
 import ngrok
 from oauthlib.oauth2 import WebApplicationClient
 from requests_oauthlib import OAuth2Session
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
+    from socket import socket
 
 
 class FreeAgent(OAuth2Session):  # type: ignore[misc]
@@ -35,7 +37,7 @@ class FreeAgent(OAuth2Session):  # type: ignore[misc]
             **kwargs,
         )
 
-    def get_authorization_url(self, listener: "FreeAgentAuthCodeListener") -> str:
+    def get_authorization_url(self, listener: FreeAgentAuthCodeListener) -> str:
         """Get authorization URL."""
         self.redirect_uri = listener.ngrok.url()
         url: str = self._client.prepare_request_uri(

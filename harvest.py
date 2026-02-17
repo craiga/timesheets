@@ -1,9 +1,11 @@
 """Harvest."""
 
-from collections.abc import Iterator
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import requests
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 
 class Harvest(requests.Session):
