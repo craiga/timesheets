@@ -20,7 +20,7 @@ Commands:
 
 Reads clients, projects, and tasks from Harvest.
 
-The Timing script also creates and updates time entries in Harvest based on Timing time entries.
+The Timing script creates and updates time entries in Harvest based on Timing time entries.
 
 ```
 ❯ uv run timesheets.py harvest
@@ -41,7 +41,7 @@ Commands:
 
 ## Timing
 
-Reads projects from [Timing](https://timingapp.com). Also associates projects with Harvest projects and tasks, and sends time entries to Harvest based on those associations.
+Reads projects from [Timing](https://timingapp.com). Associates projects with Harvest projects and tasks, and sends time entries to Harvest based on those associations.
 
 ```
 ❯ uv run timesheets.py timing
