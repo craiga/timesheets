@@ -3,17 +3,17 @@ name = "Timesheet"
 requires-python = ">=3.14"
 dynamic = ["version"]
 dependencies = [
-    "click>=8.3.1",
+    "click>=8.3.2",
     "click-log>=0.4.0",
-    "icecream>=2.1.10",
-    "mypy>=1.19.1",
+    "icecream>=2.2.0",
+    "mypy>=1.20.1",
     "ngrok>=1.7.0",
-    "python-dotenv>=1.2.1",
-    "requests>=2.32.5",
+    "python-dotenv>=1.2.2",
+    "requests>=2.33.1",
     "requests-oauthlib>=2.0.0",
-    "types-click-log>=0.4.0.20250413",
-    "types-oauthlib>=3.3.0.20250822",
-    "types-requests>=2.32.4.20260107",
+    "types-click-log>=0.4.0.20260408",
+    "types-oauthlib>=3.3.0.20260408",
+    "types-requests>=2.33.0.20260408",
 ]
 
 [tool.mypy]
